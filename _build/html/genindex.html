@@ -1,0 +1,484 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Index &#8212; Axon Compass — Axon Review Project Dashboard</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'genindex';</script>
+    <link rel="canonical" href="https://YOUR-GITHUB-USERNAME.github.io/axon-compass/genindex.html" />
+    <link rel="index" title="Index" href="#" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Axon Compass — Axon Review Project Dashboard</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Axon Compass — Axon Review Project Dashboard
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="process.html">The Universal Process</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="fields/education/index.html">Neuroscience × Education</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="fields/education/curriculum-alignment.html">AXON REVIEW — FULL CURRICULUM ALIGNMENT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fields/education/01-the-forgetting-curve-classroom.html">1. The Forgetting Curve Classroom</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fields/education/02-cognitive-load-classrooms.html">2. Cognitive Load Classrooms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fields/education/03-the-sleep-deprived-school-start.html">3. The Sleep-Deprived School Start</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fields/education/04-stereotype-threat-in-the-classroom.html">4. Stereotype Threat in the Classroom</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fields/education/05-growth-mindset-measured-honestly.html">5. Growth Mindset, Measured Honestly</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fields/education/06-bilingual-brain-bilingual-classroom.html">6. Bilingual Brain, Bilingual Classroom</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fields/education/07-attention-span-or-attention-design.html">7. Attention Span or Attention Design?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fields/education/08-testing-as-teaching.html">8. Testing as Teaching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fields/education/09-neuromyths-in-the-staff-room.html">9. Neuromyths in the Staff Room</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fields/education/10-recess-and-the-developing-brain.html">10. Recess and the Developing Brain</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="fields/economics/index.html">Neuroscience × Economics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="fields/economics/curriculum-alignment.html">AXON REVIEW — FULL CURRICULUM ALIGNMENT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fields/economics/01-the-cost-of-now.html">1. The Cost of Now</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fields/economics/02-loss-aversion-in-the-lunch-line.html">2. Loss Aversion in the Lunch Line</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fields/economics/03-the-dopamine-auction.html">3. The Dopamine Auction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fields/economics/04-stress-hormones-and-bad-trades.html">4. Stress Hormones and Bad Trades</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fields/economics/05-the-scarcity-mindset.html">5. The Scarcity Mindset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fields/economics/06-social-proof-and-the-neural-herd.html">6. Social Proof and the Neural Herd</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fields/economics/07-anchoring-in-the-aisles.html">7. Anchoring in the Aisles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fields/economics/08-the-endowment-effect-at-the-swap-meet.html">8. The Endowment Effect at the Swap Meet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fields/economics/09-delay-of-gratification-revisited.html">9. Delay of Gratification, Revisited</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fields/economics/10-neuroeconomics-of-fairness.html">10. Neuroeconomics of Fairness</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="fields/policy-diplomacy-advocacy/index.html">Neuroscience × Policy, Diplomacy &amp; Advocacy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="fields/policy-diplomacy-advocacy/curriculum-alignment.html">AXON REVIEW — FULL CURRICULUM ALIGNMENT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fields/policy-diplomacy-advocacy/01-the-adolescent-brain-on-trial.html">1. The Adolescent Brain on Trial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fields/policy-diplomacy-advocacy/02-diplomacy-under-duress.html">2. Diplomacy Under Duress</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fields/policy-diplomacy-advocacy/03-the-empathy-gap-in-foreign-aid-messaging.html">3. The Empathy Gap in Foreign Aid Messaging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fields/policy-diplomacy-advocacy/04-groupthink-at-the-summit-table.html">4. Groupthink at the Summit Table</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fields/policy-diplomacy-advocacy/05-the-neuroscience-of-radicalization.html">5. The Neuroscience of Radicalization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fields/policy-diplomacy-advocacy/06-trauma-informed-refugee-policy.html">6. Trauma-Informed Refugee Policy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fields/policy-diplomacy-advocacy/07-the-attention-economy-and-democratic-deliberation.html">7. The Attention Economy and Democratic Deliberation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fields/policy-diplomacy-advocacy/08-pain-empathy-and-war-reporting.html">8. Pain, Empathy, and War Reporting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fields/policy-diplomacy-advocacy/09-sleep-deprivation-and-diplomatic-judgment.html">9. Sleep Deprivation and Diplomatic Judgment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fields/policy-diplomacy-advocacy/10-neurodiversity-in-diplomatic-training.html">10. Neurodiversity in Diplomatic Training</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="fields/physics/index.html">Neuroscience × Physics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="fields/physics/curriculum-alignment.html">AXON REVIEW — FULL CURRICULUM ALIGNMENT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fields/physics/01-the-brain-as-a-circuit.html">1. The Brain as a Circuit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fields/physics/02-brainwaves-literally.html">2. Brainwaves, Literally</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fields/physics/03-how-fast-is-a-thought.html">3. How Fast Is a Thought?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fields/physics/04-thermodynamics-of-thinking.html">4. Thermodynamics of Thinking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fields/physics/05-resonance-and-the-startle-reflex.html">5. Resonance and the Startle Reflex</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fields/physics/06-the-physics-of-a-concussion.html">6. The Physics of a Concussion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fields/physics/07-optics-of-perception.html">7. Optics of Perception</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fields/physics/08-diffusion-and-the-synapse.html">8. Diffusion and the Synapse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fields/physics/09-pupillometry-as-a-pendulum-problem.html">9. Pupillometry as a Pendulum Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fields/physics/10-sound-cochlea-and-resonance.html">10. Sound, Cochlea, and Resonance</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="fields/mathematics/index.html">Neuroscience × Mathematics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="fields/mathematics/curriculum-alignment.html">AXON REVIEW — FULL CURRICULUM ALIGNMENT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fields/mathematics/01-percent-better.html">1. Percent Better</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fields/mathematics/02-average-you.html">2. Average You</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fields/mathematics/03-brain-to-body-ratio.html">3. Brain-to-Body Ratio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fields/mathematics/04-graphing-forgetting.html">4. Graphing Forgetting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fields/mathematics/05-the-odds-of-guessing.html">5. The Odds of Guessing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fields/mathematics/06-the-magic-number-test.html">6. The Magic Number Test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fields/mathematics/07-sleep-and-grades-plotted.html">7. Sleep and Grades, Plotted</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fields/mathematics/08-slicing-the-brain.html">8. Slicing the Brain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fields/mathematics/09-practice-makes-a-pattern.html">9. Practice Makes a Pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fields/mathematics/10-symmetry-and-the-face.html">10. Symmetry and the Face</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="fields/biology-chemistry/index.html">Neuroscience × Biology &amp; Chemistry</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="fields/biology-chemistry/curriculum-alignment.html">AXON REVIEW — FULL CURRICULUM ALIGNMENT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fields/biology-chemistry/01-the-chemistry-of-a-craving.html">1. The Chemistry of a Craving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fields/biology-chemistry/02-ph-and-the-brain.html">2. pH and the Brain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fields/biology-chemistry/03-cells-under-stress.html">3. Cells Under Stress</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fields/biology-chemistry/04-the-chemical-messengers-chart.html">4. The Chemical Messengers Chart</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fields/biology-chemistry/05-fermentation-and-focus.html">5. Fermentation and Focus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fields/biology-chemistry/06-dna-and-individual-differences.html">6. DNA and Individual Differences</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fields/biology-chemistry/07-reaction-rates-and-reflexes.html">7. Reaction Rates and Reflexes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fields/biology-chemistry/08-enzymes-and-memory-medications.html">8. Enzymes and Memory Medications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fields/biology-chemistry/09-the-smell-memory-molecule-link.html">9. The Smell-Memory Molecule Link</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fields/biology-chemistry/10-antioxidants-and-brain-aging.html">10. Antioxidants and Brain Aging</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="fields/computer-science/index.html">Neuroscience × Computer Science</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="fields/computer-science/curriculum-alignment.html">AXON REVIEW — FULL CURRICULUM ALIGNMENT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fields/computer-science/01-teaching-a-computer-to-forget-on-purpose.html">1. Teaching a Computer to Forget (On Purpose)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fields/computer-science/02-if-then-brains.html">2. If-Then Brains</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fields/computer-science/03-building-a-tiny-brain-network.html">3. Building a Tiny Brain Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fields/computer-science/04-the-attention-filter.html">4. The Attention Filter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fields/computer-science/05-reaction-time-timed-by-code.html">5. Reaction Time, Timed by Code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fields/computer-science/06-sorting-out-sleep.html">6. Sorting Out Sleep</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fields/computer-science/07-chatbot-empathy-check.html">7. Chatbot Empathy Check</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fields/computer-science/08-habit-loop-tracker.html">8. Habit Loop Tracker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fields/computer-science/09-the-maze-learning-robot-or-simulation.html">9. The Maze-Learning Robot (or Simulation)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fields/computer-science/10-screen-time-self-audit.html">10. Screen Time Self-Audit</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="fields/entrepreneurship/index.html">Neuroscience × Entrepreneurship</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="fields/entrepreneurship/curriculum-alignment.html">AXON REVIEW — FULL CURRICULUM ALIGNMENT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fields/entrepreneurship/01-the-focus-kit.html">1. The Focus Kit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fields/entrepreneurship/02-sleep-better-challenge.html">2. Sleep Better Challenge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fields/entrepreneurship/03-the-two-minute-reset.html">3. The Two-Minute Reset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fields/entrepreneurship/04-study-group-matchmaker.html">4. Study Group Matchmaker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fields/entrepreneurship/05-the-habit-stack-card.html">5. The Habit Stack Card</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fields/entrepreneurship/06-the-notification-detox-challenge.html">6. The Notification Detox Challenge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fields/entrepreneurship/07-memory-palace-workshop.html">7. Memory Palace Workshop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fields/entrepreneurship/08-the-snack-swap-cart.html">8. The Snack Swap Cart</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fields/entrepreneurship/09-the-mood-check-in-board.html">9. The Mood Check-In Board</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fields/entrepreneurship/10-pitch-night-the-neuroscience-product-fair.html">10. Pitch Night: The Neuroscience Product Fair</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/YOUR-GITHUB-USERNAME/axon-compass" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+
+<h1 id="index">Index</h1>
+
+<div class="genindex-jumpbox">
+ 
+</div>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Axon Review
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026, Axon Review.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  Axon Review Project Dashboard — open access, no login required.
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

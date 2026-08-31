@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://fantina01.github.io/axon-compass/sitemap.xml

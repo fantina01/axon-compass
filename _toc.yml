@@ -1,0 +1,108 @@
+format: jb-book
+root: intro
+chapters:
+- file: process
+- file: fields/education/index
+  sections:
+  - file: fields/education/curriculum-alignment
+  - file: fields/education/01-the-forgetting-curve-classroom
+  - file: fields/education/02-cognitive-load-classrooms
+  - file: fields/education/03-the-sleep-deprived-school-start
+  - file: fields/education/04-stereotype-threat-in-the-classroom
+  - file: fields/education/05-growth-mindset-measured-honestly
+  - file: fields/education/06-bilingual-brain-bilingual-classroom
+  - file: fields/education/07-attention-span-or-attention-design
+  - file: fields/education/08-testing-as-teaching
+  - file: fields/education/09-neuromyths-in-the-staff-room
+  - file: fields/education/10-recess-and-the-developing-brain
+- file: fields/economics/index
+  sections:
+  - file: fields/economics/curriculum-alignment
+  - file: fields/economics/01-the-cost-of-now
+  - file: fields/economics/02-loss-aversion-in-the-lunch-line
+  - file: fields/economics/03-the-dopamine-auction
+  - file: fields/economics/04-stress-hormones-and-bad-trades
+  - file: fields/economics/05-the-scarcity-mindset
+  - file: fields/economics/06-social-proof-and-the-neural-herd
+  - file: fields/economics/07-anchoring-in-the-aisles
+  - file: fields/economics/08-the-endowment-effect-at-the-swap-meet
+  - file: fields/economics/09-delay-of-gratification-revisited
+  - file: fields/economics/10-neuroeconomics-of-fairness
+- file: fields/policy-diplomacy-advocacy/index
+  sections:
+  - file: fields/policy-diplomacy-advocacy/curriculum-alignment
+  - file: fields/policy-diplomacy-advocacy/01-the-adolescent-brain-on-trial
+  - file: fields/policy-diplomacy-advocacy/02-diplomacy-under-duress
+  - file: fields/policy-diplomacy-advocacy/03-the-empathy-gap-in-foreign-aid-messaging
+  - file: fields/policy-diplomacy-advocacy/04-groupthink-at-the-summit-table
+  - file: fields/policy-diplomacy-advocacy/05-the-neuroscience-of-radicalization
+  - file: fields/policy-diplomacy-advocacy/06-trauma-informed-refugee-policy
+  - file: fields/policy-diplomacy-advocacy/07-the-attention-economy-and-democratic-deliberation
+  - file: fields/policy-diplomacy-advocacy/08-pain-empathy-and-war-reporting
+  - file: fields/policy-diplomacy-advocacy/09-sleep-deprivation-and-diplomatic-judgment
+  - file: fields/policy-diplomacy-advocacy/10-neurodiversity-in-diplomatic-training
+- file: fields/physics/index
+  sections:
+  - file: fields/physics/curriculum-alignment
+  - file: fields/physics/01-the-brain-as-a-circuit
+  - file: fields/physics/02-brainwaves-literally
+  - file: fields/physics/03-how-fast-is-a-thought
+  - file: fields/physics/04-thermodynamics-of-thinking
+  - file: fields/physics/05-resonance-and-the-startle-reflex
+  - file: fields/physics/06-the-physics-of-a-concussion
+  - file: fields/physics/07-optics-of-perception
+  - file: fields/physics/08-diffusion-and-the-synapse
+  - file: fields/physics/09-pupillometry-as-a-pendulum-problem
+  - file: fields/physics/10-sound-cochlea-and-resonance
+- file: fields/mathematics/index
+  sections:
+  - file: fields/mathematics/curriculum-alignment
+  - file: fields/mathematics/01-percent-better
+  - file: fields/mathematics/02-average-you
+  - file: fields/mathematics/03-brain-to-body-ratio
+  - file: fields/mathematics/04-graphing-forgetting
+  - file: fields/mathematics/05-the-odds-of-guessing
+  - file: fields/mathematics/06-the-magic-number-test
+  - file: fields/mathematics/07-sleep-and-grades-plotted
+  - file: fields/mathematics/08-slicing-the-brain
+  - file: fields/mathematics/09-practice-makes-a-pattern
+  - file: fields/mathematics/10-symmetry-and-the-face
+- file: fields/biology-chemistry/index
+  sections:
+  - file: fields/biology-chemistry/curriculum-alignment
+  - file: fields/biology-chemistry/01-the-chemistry-of-a-craving
+  - file: fields/biology-chemistry/02-ph-and-the-brain
+  - file: fields/biology-chemistry/03-cells-under-stress
+  - file: fields/biology-chemistry/04-the-chemical-messengers-chart
+  - file: fields/biology-chemistry/05-fermentation-and-focus
+  - file: fields/biology-chemistry/06-dna-and-individual-differences
+  - file: fields/biology-chemistry/07-reaction-rates-and-reflexes
+  - file: fields/biology-chemistry/08-enzymes-and-memory-medications
+  - file: fields/biology-chemistry/09-the-smell-memory-molecule-link
+  - file: fields/biology-chemistry/10-antioxidants-and-brain-aging
+- file: fields/computer-science/index
+  sections:
+  - file: fields/computer-science/curriculum-alignment
+  - file: fields/computer-science/01-teaching-a-computer-to-forget-on-purpose
+  - file: fields/computer-science/02-if-then-brains
+  - file: fields/computer-science/03-building-a-tiny-brain-network
+  - file: fields/computer-science/04-the-attention-filter
+  - file: fields/computer-science/05-reaction-time-timed-by-code
+  - file: fields/computer-science/06-sorting-out-sleep
+  - file: fields/computer-science/07-chatbot-empathy-check
+  - file: fields/computer-science/08-habit-loop-tracker
+  - file: fields/computer-science/09-the-maze-learning-robot-or-simulation
+  - file: fields/computer-science/10-screen-time-self-audit
+- file: fields/entrepreneurship/index
+  sections:
+  - file: fields/entrepreneurship/curriculum-alignment
+  - file: fields/entrepreneurship/01-the-focus-kit
+  - file: fields/entrepreneurship/02-sleep-better-challenge
+  - file: fields/entrepreneurship/03-the-two-minute-reset
+  - file: fields/entrepreneurship/04-study-group-matchmaker
+  - file: fields/entrepreneurship/05-the-habit-stack-card
+  - file: fields/entrepreneurship/06-the-notification-detox-challenge
+  - file: fields/entrepreneurship/07-memory-palace-workshop
+  - file: fields/entrepreneurship/08-the-snack-swap-cart
+  - file: fields/entrepreneurship/09-the-mood-check-in-board
+  - file: fields/entrepreneurship/10-pitch-night-the-neuroscience-product-fair

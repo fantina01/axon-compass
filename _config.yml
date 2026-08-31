@@ -1,0 +1,46 @@
+title: Axon Compass — Axon Review Project Dashboard
+author: Axon Review
+logo: ""
+copyright: "2026, Axon Review"
+
+# Keep this a documentation site, not a computed-notebook site
+execute:
+  execute_notebooks: "off"
+
+# Open access: no password, no login wall, plain static HTML output
+only_build_toc_files: true
+
+html:
+  favicon: ""
+  use_edit_page_button: false
+  use_repository_button: true
+  use_issues_button: false
+  use_multitoc_numbering: true
+  extra_navbar: "Axon Review — Axon Compass Project Dashboard"
+  extra_footer: "Axon Review Project Dashboard — open access, no login required."
+  google_analytics_id: ""
+  home_page_in_navbar: true
+  baseurl: "https://fantina01.github.io/axon-compass/"
+
+repository:
+  url: https://github.com/fantina01/axon-compass
+  path_to_book: ""
+  branch: main
+
+launch_buttons:
+  notebook_interface: "classic"
+
+sphinx:
+  config:
+    html_theme: sphinx_book_theme
+    html_title: "Axon Compass — Axon Review Project Dashboard"
+    html_baseurl: "https://fantina01.github.io/axon-compass/"
+    html_extra_path: ["robots.txt", "archive.html"]
+    html_meta:
+      description: "Axon Compass is the open-access project dashboard for Axon Review — exact steps, literature, and unit-by-unit process for every neuroscience-interdisciplinary project across every field."
+      keywords: "Axon Review, Axon Compass, neuroscience education, project dashboard, high school research"
+
+parse:
+  myst_enable_extensions:
+    - colon_fence
+    - deflist
