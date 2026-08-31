@@ -1,0 +1,742 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>5. Reaction Time, Timed by Code &#8212; Axon Compass — Axon Review Project Dashboard</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'fields/computer-science/05-reaction-time-timed-by-code';</script>
+    <link rel="canonical" href="https://fantina01.github.io/axon-compass/fields/computer-science/05-reaction-time-timed-by-code.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="6. Sorting Out Sleep" href="06-sorting-out-sleep.html" />
+    <link rel="prev" title="4. The Attention Filter" href="04-the-attention-filter.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Axon Compass — Axon Review Project Dashboard</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Axon Compass — Axon Review Project Dashboard
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../process.html">The Universal Process</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../education/index.html">Neuroscience × Education</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../education/curriculum-alignment.html">AXON REVIEW — FULL CURRICULUM ALIGNMENT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../education/01-the-forgetting-curve-classroom.html">1. The Forgetting Curve Classroom</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../education/02-cognitive-load-classrooms.html">2. Cognitive Load Classrooms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../education/03-the-sleep-deprived-school-start.html">3. The Sleep-Deprived School Start</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../education/04-stereotype-threat-in-the-classroom.html">4. Stereotype Threat in the Classroom</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../education/05-growth-mindset-measured-honestly.html">5. Growth Mindset, Measured Honestly</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../education/06-bilingual-brain-bilingual-classroom.html">6. Bilingual Brain, Bilingual Classroom</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../education/07-attention-span-or-attention-design.html">7. Attention Span or Attention Design?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../education/08-testing-as-teaching.html">8. Testing as Teaching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../education/09-neuromyths-in-the-staff-room.html">9. Neuromyths in the Staff Room</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../education/10-recess-and-the-developing-brain.html">10. Recess and the Developing Brain</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../economics/index.html">Neuroscience × Economics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../economics/curriculum-alignment.html">AXON REVIEW — FULL CURRICULUM ALIGNMENT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../economics/01-the-cost-of-now.html">1. The Cost of Now</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../economics/02-loss-aversion-in-the-lunch-line.html">2. Loss Aversion in the Lunch Line</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../economics/03-the-dopamine-auction.html">3. The Dopamine Auction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../economics/04-stress-hormones-and-bad-trades.html">4. Stress Hormones and Bad Trades</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../economics/05-the-scarcity-mindset.html">5. The Scarcity Mindset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../economics/06-social-proof-and-the-neural-herd.html">6. Social Proof and the Neural Herd</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../economics/07-anchoring-in-the-aisles.html">7. Anchoring in the Aisles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../economics/08-the-endowment-effect-at-the-swap-meet.html">8. The Endowment Effect at the Swap Meet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../economics/09-delay-of-gratification-revisited.html">9. Delay of Gratification, Revisited</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../economics/10-neuroeconomics-of-fairness.html">10. Neuroeconomics of Fairness</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../policy-diplomacy-advocacy/index.html">Neuroscience × Policy, Diplomacy &amp; Advocacy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../policy-diplomacy-advocacy/curriculum-alignment.html">AXON REVIEW — FULL CURRICULUM ALIGNMENT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../policy-diplomacy-advocacy/01-the-adolescent-brain-on-trial.html">1. The Adolescent Brain on Trial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../policy-diplomacy-advocacy/02-diplomacy-under-duress.html">2. Diplomacy Under Duress</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../policy-diplomacy-advocacy/03-the-empathy-gap-in-foreign-aid-messaging.html">3. The Empathy Gap in Foreign Aid Messaging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../policy-diplomacy-advocacy/04-groupthink-at-the-summit-table.html">4. Groupthink at the Summit Table</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../policy-diplomacy-advocacy/05-the-neuroscience-of-radicalization.html">5. The Neuroscience of Radicalization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../policy-diplomacy-advocacy/06-trauma-informed-refugee-policy.html">6. Trauma-Informed Refugee Policy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../policy-diplomacy-advocacy/07-the-attention-economy-and-democratic-deliberation.html">7. The Attention Economy and Democratic Deliberation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../policy-diplomacy-advocacy/08-pain-empathy-and-war-reporting.html">8. Pain, Empathy, and War Reporting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../policy-diplomacy-advocacy/09-sleep-deprivation-and-diplomatic-judgment.html">9. Sleep Deprivation and Diplomatic Judgment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../policy-diplomacy-advocacy/10-neurodiversity-in-diplomatic-training.html">10. Neurodiversity in Diplomatic Training</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../physics/index.html">Neuroscience × Physics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../physics/curriculum-alignment.html">AXON REVIEW — FULL CURRICULUM ALIGNMENT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../physics/01-the-brain-as-a-circuit.html">1. The Brain as a Circuit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../physics/02-brainwaves-literally.html">2. Brainwaves, Literally</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../physics/03-how-fast-is-a-thought.html">3. How Fast Is a Thought?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../physics/04-thermodynamics-of-thinking.html">4. Thermodynamics of Thinking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../physics/05-resonance-and-the-startle-reflex.html">5. Resonance and the Startle Reflex</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../physics/06-the-physics-of-a-concussion.html">6. The Physics of a Concussion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../physics/07-optics-of-perception.html">7. Optics of Perception</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../physics/08-diffusion-and-the-synapse.html">8. Diffusion and the Synapse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../physics/09-pupillometry-as-a-pendulum-problem.html">9. Pupillometry as a Pendulum Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../physics/10-sound-cochlea-and-resonance.html">10. Sound, Cochlea, and Resonance</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../mathematics/index.html">Neuroscience × Mathematics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../mathematics/curriculum-alignment.html">AXON REVIEW — FULL CURRICULUM ALIGNMENT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mathematics/01-percent-better.html">1. Percent Better</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mathematics/02-average-you.html">2. Average You</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mathematics/03-brain-to-body-ratio.html">3. Brain-to-Body Ratio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mathematics/04-graphing-forgetting.html">4. Graphing Forgetting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mathematics/05-the-odds-of-guessing.html">5. The Odds of Guessing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mathematics/06-the-magic-number-test.html">6. The Magic Number Test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mathematics/07-sleep-and-grades-plotted.html">7. Sleep and Grades, Plotted</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mathematics/08-slicing-the-brain.html">8. Slicing the Brain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mathematics/09-practice-makes-a-pattern.html">9. Practice Makes a Pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mathematics/10-symmetry-and-the-face.html">10. Symmetry and the Face</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../biology-chemistry/index.html">Neuroscience × Biology &amp; Chemistry</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../biology-chemistry/curriculum-alignment.html">AXON REVIEW — FULL CURRICULUM ALIGNMENT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../biology-chemistry/01-the-chemistry-of-a-craving.html">1. The Chemistry of a Craving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../biology-chemistry/02-ph-and-the-brain.html">2. pH and the Brain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../biology-chemistry/03-cells-under-stress.html">3. Cells Under Stress</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../biology-chemistry/04-the-chemical-messengers-chart.html">4. The Chemical Messengers Chart</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../biology-chemistry/05-fermentation-and-focus.html">5. Fermentation and Focus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../biology-chemistry/06-dna-and-individual-differences.html">6. DNA and Individual Differences</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../biology-chemistry/07-reaction-rates-and-reflexes.html">7. Reaction Rates and Reflexes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../biology-chemistry/08-enzymes-and-memory-medications.html">8. Enzymes and Memory Medications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../biology-chemistry/09-the-smell-memory-molecule-link.html">9. The Smell-Memory Molecule Link</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../biology-chemistry/10-antioxidants-and-brain-aging.html">10. Antioxidants and Brain Aging</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Neuroscience × Computer Science</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="curriculum-alignment.html">AXON REVIEW — FULL CURRICULUM ALIGNMENT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01-teaching-a-computer-to-forget-on-purpose.html">1. Teaching a Computer to Forget (On Purpose)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02-if-then-brains.html">2. If-Then Brains</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03-building-a-tiny-brain-network.html">3. Building a Tiny Brain Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04-the-attention-filter.html">4. The Attention Filter</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">5. Reaction Time, Timed by Code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06-sorting-out-sleep.html">6. Sorting Out Sleep</a></li>
+<li class="toctree-l2"><a class="reference internal" href="07-chatbot-empathy-check.html">7. Chatbot Empathy Check</a></li>
+<li class="toctree-l2"><a class="reference internal" href="08-habit-loop-tracker.html">8. Habit Loop Tracker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="09-the-maze-learning-robot-or-simulation.html">9. The Maze-Learning Robot (or Simulation)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10-screen-time-self-audit.html">10. Screen Time Self-Audit</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../entrepreneurship/index.html">Neuroscience × Entrepreneurship</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../entrepreneurship/curriculum-alignment.html">AXON REVIEW — FULL CURRICULUM ALIGNMENT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../entrepreneurship/01-the-focus-kit.html">1. The Focus Kit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../entrepreneurship/02-sleep-better-challenge.html">2. Sleep Better Challenge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../entrepreneurship/03-the-two-minute-reset.html">3. The Two-Minute Reset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../entrepreneurship/04-study-group-matchmaker.html">4. Study Group Matchmaker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../entrepreneurship/05-the-habit-stack-card.html">5. The Habit Stack Card</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../entrepreneurship/06-the-notification-detox-challenge.html">6. The Notification Detox Challenge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../entrepreneurship/07-memory-palace-workshop.html">7. Memory Palace Workshop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../entrepreneurship/08-the-snack-swap-cart.html">8. The Snack Swap Cart</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../entrepreneurship/09-the-mood-check-in-board.html">9. The Mood Check-In Board</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../entrepreneurship/10-pitch-night-the-neuroscience-product-fair.html">10. Pitch Night: The Neuroscience Product Fair</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/fantina01/axon-compass" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/fields/computer-science/05-reaction-time-timed-by-code.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>5. Reaction Time, Timed by Code</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#core-literature-read-this-before-starting-unit-ii">Core Literature — Read This Before Starting Unit II</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#woodworth-r-s-schlosberg-h-1954-experimental-psychology-rev-ed-holt-rinehart-and-winston">1. Woodworth, R. S., &amp; Schlosberg, H. (1954). Experimental Psychology (Rev. ed.). Holt, Rinehart and Winston.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#whelan-r-2008-effective-analysis-of-reaction-time-data-the-psychological-record-58-3-475-482">2. Whelan, R. (2008). Effective analysis of reaction time data. The Psychological Record, 58(3), 475-482.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deary-i-j-der-g-ford-g-2001-reaction-times-and-intelligence-differences-a-population-based-cohort-study-intelligence-29-5-389-399">3. Deary, I. J., Der, G., &amp; Ford, G. (2001). Reaction times and intelligence differences: A population-based cohort study. Intelligence, 29(5), 389-399.</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exact-steps-unit-by-unit">Exact Steps, Unit by Unit</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unit-i-learning-innovation-challenge">Unit I — Learning Innovation Challenge</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unit-ii-research-investigation">Unit II — Research Investigation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unit-iii-public-communication-social-impact">Unit III — Public Communication &amp; Social Impact</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unit-iv-memory-decision-systems-simulation">Unit IV — Memory/Decision Systems Simulation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unit-v-policy-formation-simulation">Unit V — Policy Formation Simulation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unit-vi-integration-summit">Unit VI — Integration &amp; Summit</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#skills-this-project-builds">Skills This Project Builds</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-this-project-impresses">Why This Project Impresses</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-the-six-outputs-link-into-one-portfolio">How the Six Outputs Link Into One Portfolio</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#maximize-your-impact-what-to-do-with-this-after-the-season">Maximize Your Impact — What To Do With This After the Season</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="reaction-time-timed-by-code">
+<h1>5. Reaction Time, Timed by Code<a class="headerlink" href="#reaction-time-timed-by-code" title="Link to this heading">#</a></h1>
+<p><em>Building a Simple Reaction-Time Testing Tool</em></p>
+<p><strong>Field:</strong> Neuroscience × Computer Science  ·  <strong>Project ID:</strong> <code class="docutils literal notranslate"><span class="pre">computer-science/05-reaction-time-timed-by-code</span></code></p>
+<div class="tip admonition">
+<p class="admonition-title">Big Question</p>
+<p>Can a beginner-level program (using a basic timer function) accurately measure human reaction time, and can the resulting tool and data reveal real patterns?</p>
+</div>
+<div class="note admonition">
+<p class="admonition-title">Why This Matters</p>
+<p>Building your own reaction-time tester — rather than just using an existing online one — teaches basic timer/event-handling programming concepts while producing genuinely real, original data about brain processing speed.</p>
+</div>
+<section id="core-literature-read-this-before-starting-unit-ii">
+<h2>Core Literature — Read This Before Starting Unit II<a class="headerlink" href="#core-literature-read-this-before-starting-unit-ii" title="Link to this heading">#</a></h2>
+<p>Real, verified sources for this project. Read these before Unit II begins — they’re what your literature review and hypothesis should be built on.</p>
+<section id="woodworth-r-s-schlosberg-h-1954-experimental-psychology-rev-ed-holt-rinehart-and-winston">
+<h3>1. Woodworth, R. S., &amp; Schlosberg, H. (1954). Experimental Psychology (Rev. ed.). Holt, Rinehart and Winston.<a class="headerlink" href="#woodworth-r-s-schlosberg-h-1954-experimental-psychology-rev-ed-holt-rinehart-and-winston" title="Link to this heading">#</a></h3>
+<p>(Verified in the Physics field’s “How Fast Is a Thought?” project.) This classic reference establishes standard reaction-time measurement methodology and typical human reaction-time ranges — the exact reference values the project’s self-built tool should be checked against as a validity test.</p>
+</section>
+<section id="whelan-r-2008-effective-analysis-of-reaction-time-data-the-psychological-record-58-3-475-482">
+<h3>2. Whelan, R. (2008). Effective analysis of reaction time data. The Psychological Record, 58(3), 475-482.<a class="headerlink" href="#whelan-r-2008-effective-analysis-of-reaction-time-data-the-psychological-record-58-3-475-482" title="Link to this heading">#</a></h3>
+<p>Whelan’s paper discusses common pitfalls in analyzing reaction-time data, including how outlier responses (accidental early presses, or moments of inattention producing very slow responses) can distort average results if not handled carefully. This is directly useful for the project’s data-analysis step, since a self-built reaction-time tool with real human testers will inevitably collect some noisy, outlier data points.</p>
+</section>
+<section id="deary-i-j-der-g-ford-g-2001-reaction-times-and-intelligence-differences-a-population-based-cohort-study-intelligence-29-5-389-399">
+<h3>3. Deary, I. J., Der, G., &amp; Ford, G. (2001). Reaction times and intelligence differences: A population-based cohort study. Intelligence, 29(5), 389-399.<a class="headerlink" href="#deary-i-j-der-g-ford-g-2001-reaction-times-and-intelligence-differences-a-population-based-cohort-study-intelligence-29-5-389-399" title="Link to this heading">#</a></h3>
+<p>This large population study found a modest but real association between simple reaction time and general cognitive ability measures, providing useful, honest context for the project: while reaction time is a genuine measurable brain-processing signal, it should be presented as one narrow indicator, not a broad measure of overall intelligence or ability.</p>
+</section>
+</section>
+<section id="exact-steps-unit-by-unit">
+<h2>Exact Steps, Unit by Unit<a class="headerlink" href="#exact-steps-unit-by-unit" title="Link to this heading">#</a></h2>
+<p>Every step below plugs into the fixed season process described in <a class="reference internal" href="../../process.html"><span class="doc">The Universal Process</span></a> — tournaments and laboratories run identically regardless of field. Only the content below is specific to this project.</p>
+<section id="unit-i-learning-innovation-challenge">
+<h3>Unit I — Learning Innovation Challenge<a class="headerlink" href="#unit-i-learning-innovation-challenge" title="Link to this heading">#</a></h3>
+<p><em>Weeks 1–4 · Required artifact: <strong>Innovation Proposal I</strong></em></p>
+<p><strong>Process for this unit (same for every project in the chapter):</strong> Run the Week 2 <strong>Confidence Gap</strong> tournament (see the Universal Process chapter).</p>
+<p><strong>Steps specific to this project:</strong></p>
+<ul class="simple">
+<li><p>[ ] Students design a “Reaction Time Coder Kit” — a simple program (a webpage or basic script) that displays a signal (like a color change) at a random moment and measures how long it takes the user to respond (like pressing a key), recording the time. Innovation Proposal I documents the basic program logic and an initial test run.</p></li>
+</ul>
+</section>
+<section id="unit-ii-research-investigation">
+<h3>Unit II — Research Investigation<a class="headerlink" href="#unit-ii-research-investigation" title="Link to this heading">#</a></h3>
+<p><em>Weeks 5–8 · Required artifact: <strong>Research Investigation / Prospectus</strong></em></p>
+<p><strong>Process for this unit (same for every project in the chapter):</strong> Week 6 <strong>Prediction Ladder</strong> tournament + Week 7 <strong>Build-a-System</strong> laboratory.</p>
+<p><strong>Steps specific to this project:</strong></p>
+<ul class="simple">
+<li><p>[ ] <strong>Literature review:</strong> basic explanations of nerve signal timing and reaction time, plus the basic timer/event-handling programming concepts used to build the tool.</p></li>
+<li><p>[ ] <strong>Hypothesis:</strong> reaction times measured by the student-built tool will fall within the range reported in published reaction-time research, validating that the homemade tool works correctly; additionally, peers’ reaction times will be somewhat slower on a distraction condition (like doing the test while a phone notification sound plays) compared to a no-distraction condition.</p></li>
+<li><p>[ ] <strong>Variables:</strong> distraction condition (present vs. absent) as the thing being compared; measured reaction time as the outcome.</p></li>
+<li><p>[ ] <strong>Methodology:</strong> test peers under both conditions using the student-built tool, record times, and compare, while also comparing overall results to published reference ranges as a validity check.</p></li>
+</ul>
+</section>
+<section id="unit-iii-public-communication-social-impact">
+<h3>Unit III — Public Communication &amp; Social Impact<a class="headerlink" href="#unit-iii-public-communication-social-impact" title="Link to this heading">#</a></h3>
+<p><em>Weeks 9–12 · Required artifact: <strong>Communication Product + Dissemination Plan</strong></em></p>
+<p><strong>Process for this unit (same for every project in the chapter):</strong> Week 10 <strong>Signal and the Noise</strong> tournament + Week 11 <strong>Message Transmission</strong> laboratory.</p>
+<p><strong>Steps specific to this project:</strong></p>
+<ul class="simple">
+<li><p>[ ] A short video, “I Built My Own Reaction Time Tester (And Then Tested Everyone),” using the same tool and results; dissemination through school coding club and PE/sports teams.</p></li>
+</ul>
+</section>
+<section id="unit-iv-memory-decision-systems-simulation">
+<h3>Unit IV — Memory/Decision Systems Simulation<a class="headerlink" href="#unit-iv-memory-decision-systems-simulation" title="Link to this heading">#</a></h3>
+<p><em>Weeks 13–16 · Required artifact: <strong>Simulation Model IV</strong></em></p>
+<p><strong>Process for this unit (same for every project in the chapter):</strong> Week 14 <strong>Distortion Chain</strong> tournament + Week 15 <strong>Distortion &amp; Reconstruction</strong> laboratory.</p>
+<p><strong>Steps specific to this project:</strong></p>
+<ul class="simple">
+<li><p>[ ] Simulates the reaction-time tool live as an interactive demo where visitors can try it themselves and see their result compared to the class average; documented on GitHub with the timer logic explained in plain comments.</p></li>
+</ul>
+</section>
+<section id="unit-v-policy-formation-simulation">
+<h3>Unit V — Policy Formation Simulation<a class="headerlink" href="#unit-v-policy-formation-simulation" title="Link to this heading">#</a></h3>
+<p><em>Weeks 17–20 · Required artifact: <strong>Policy Draft Document</strong></em></p>
+<p><strong>Process for this unit (same for every project in the chapter):</strong> Week 18 <strong>Self-Forecast Duel</strong> tournament + Week 19 <strong>Identity &amp; System Construction</strong> laboratory.</p>
+<p><strong>Steps specific to this project:</strong></p>
+<ul class="simple">
+<li><p>[ ] Policy proposal recommending this project be used as a standard beginner timer/event-handling assignment in intro computer science classes, aimed at computer science curriculum coordinators.</p></li>
+</ul>
+</section>
+<section id="unit-vi-integration-summit">
+<h3>Unit VI — Integration &amp; Summit<a class="headerlink" href="#unit-vi-integration-summit" title="Link to this heading">#</a></h3>
+<p><em>Weeks 21–24 · Required artifact: <strong>Capstone Project</strong></em></p>
+<p><strong>Process for this unit (same for every project in the chapter):</strong> Week 22 <strong>Capstone Prototype Development</strong> laboratory, leading into the Week 24 Summit.</p>
+<p><strong>Steps specific to this project:</strong></p>
+<ul class="simple">
+<li><p>[ ] Capstone integrates the coder kit, the distraction-comparison study, the video, the live interactive demo, and the curriculum proposal into one “reaction time, timed by code” portfolio.</p></li>
+</ul>
+</section>
+</section>
+<section id="skills-this-project-builds">
+<h2>Skills This Project Builds<a class="headerlink" href="#skills-this-project-builds" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Using timer and event-handling functions to build original software.</p></li>
+<li><p>Validating a self-built instrument against published reference data.</p></li>
+<li><p>Designing and running a real distraction-condition experiment.</p></li>
+<li><p>Building a live, public-facing interactive demo.</p></li>
+<li><p>Proposing a hands-on programming assignment to a CS curriculum.</p></li>
+</ul>
+</section>
+<section id="why-this-project-impresses">
+<h2>Why This Project Impresses<a class="headerlink" href="#why-this-project-impresses" title="Link to this heading">#</a></h2>
+<p>A genuinely original, fully-built tool (not just using an existing app) producing real data, using beginner-level timer/event programming — hands-on and rigorous.</p>
+</section>
+<hr class="docutils" />
+<section id="how-the-six-outputs-link-into-one-portfolio">
+<h2>How the Six Outputs Link Into One Portfolio<a class="headerlink" href="#how-the-six-outputs-link-into-one-portfolio" title="Link to this heading">#</a></h2>
+<p>Every unit of this project is the same original, self-built tool, made more rigorous at each stage. Unit I writes the first working timer. Unit II validates that tool against real published reference ranges, then tests a real distraction hypothesis. Unit III explains that exact original tool and its real results to an audience who’s used online reaction-time tests without ever wondering how they’re built. Unit IV turns it into a live, interactive demo anyone can try. Unit V asks CS classes to adopt this exact project as their timer/event-handling assignment. A CS mentor sees a student who built, validated, and used their own instrument — not just an app someone else made.</p>
+</section>
+<section id="maximize-your-impact-what-to-do-with-this-after-the-season">
+<h2>Maximize Your Impact — What To Do With This After the Season<a class="headerlink" href="#maximize-your-impact-what-to-do-with-this-after-the-season" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Propose the tool as the standard timer/event-handling assignment for your CS curriculum.</p></li>
+<li><p>Submit the distraction-comparison study to a science fair under human-computer interaction or physiology.</p></li>
+<li><p>Publish the tool publicly so other classes can use and validate it with their own data.</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./fields\computer-science"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="04-the-attention-filter.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">4. The Attention Filter</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="06-sorting-out-sleep.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">6. Sorting Out Sleep</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#core-literature-read-this-before-starting-unit-ii">Core Literature — Read This Before Starting Unit II</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#woodworth-r-s-schlosberg-h-1954-experimental-psychology-rev-ed-holt-rinehart-and-winston">1. Woodworth, R. S., &amp; Schlosberg, H. (1954). Experimental Psychology (Rev. ed.). Holt, Rinehart and Winston.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#whelan-r-2008-effective-analysis-of-reaction-time-data-the-psychological-record-58-3-475-482">2. Whelan, R. (2008). Effective analysis of reaction time data. The Psychological Record, 58(3), 475-482.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deary-i-j-der-g-ford-g-2001-reaction-times-and-intelligence-differences-a-population-based-cohort-study-intelligence-29-5-389-399">3. Deary, I. J., Der, G., &amp; Ford, G. (2001). Reaction times and intelligence differences: A population-based cohort study. Intelligence, 29(5), 389-399.</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exact-steps-unit-by-unit">Exact Steps, Unit by Unit</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unit-i-learning-innovation-challenge">Unit I — Learning Innovation Challenge</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unit-ii-research-investigation">Unit II — Research Investigation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unit-iii-public-communication-social-impact">Unit III — Public Communication &amp; Social Impact</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unit-iv-memory-decision-systems-simulation">Unit IV — Memory/Decision Systems Simulation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unit-v-policy-formation-simulation">Unit V — Policy Formation Simulation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unit-vi-integration-summit">Unit VI — Integration &amp; Summit</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#skills-this-project-builds">Skills This Project Builds</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-this-project-impresses">Why This Project Impresses</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-the-six-outputs-link-into-one-portfolio">How the Six Outputs Link Into One Portfolio</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#maximize-your-impact-what-to-do-with-this-after-the-season">Maximize Your Impact — What To Do With This After the Season</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Axon Review
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026, Axon Review.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  Axon Review Project Dashboard — open access, no login required.
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Axon Compass — Contribution Archive</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#16233B; --ink-2:#1D3050; --parchment:#F6F1E7; --parchment-2:#EFE8D8;
+    --teal:#1F6F5C; --teal-dark:#164F42; --amber:#C98A2C; --charcoal:#2A2A28;
+    --border:#DDD5C2; --white:#FFFDF8;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--parchment);color:var(--charcoal);font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased;}
+  ::selection{background:var(--amber);color:var(--white);}
+  .mono{font-family:'IBM Plex Mono',monospace;}
+
+  header.hero{
+    background:linear-gradient(180deg, var(--ink) 0%, var(--ink-2) 100%);
+    color:var(--parchment); padding:48px 32px 36px; border-bottom:3px solid var(--amber);
+    position:relative; overflow:hidden;
+  }
+  header.hero::before{
+    content:""; position:absolute; inset:0;
+    background-image:linear-gradient(rgba(246,241,231,0.035) 1px, transparent 1px),linear-gradient(90deg, rgba(246,241,231,0.035) 1px, transparent 1px);
+    background-size:28px 28px; pointer-events:none;
+  }
+  .hero-inner{max-width:1180px;margin:0 auto;position:relative;}
+  .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:var(--amber);margin-bottom:14px;display:flex;align-items:center;gap:10px;}
+  .eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--amber);}
+  h1.title{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(32px,4.5vw,52px);line-height:1.05;margin:0 0 14px;letter-spacing:-0.01em;}
+  h1.title em{font-style:italic;color:var(--amber);font-weight:500;}
+  .hero-sub{max-width:660px;font-size:16px;line-height:1.6;color:#C7D0E0;margin:0 0 28px;}
+  .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:30px;}
+  .btn-amber{
+    font-family:'Inter',sans-serif;font-weight:600;font-size:14.5px;
+    background:var(--amber);color:var(--ink);border:none;padding:13px 24px;border-radius:8px;
+    cursor:pointer;text-decoration:none;display:inline-block;transition:transform .1s ease, background .15s ease;
+  }
+  .btn-amber:hover{background:#DA9B3F;}
+  .btn-amber:active{transform:scale(0.98);}
+  .btn-outline{
+    font-family:'Inter',sans-serif;font-weight:500;font-size:14px;color:var(--parchment);
+    border:1px solid rgba(246,241,231,0.35);padding:12px 20px;border-radius:8px;text-decoration:none;display:inline-block;
+  }
+  .btn-outline:hover{border-color:var(--amber);color:var(--amber);}
+  .stats-row{display:flex;gap:0;flex-wrap:wrap;border-top:1px solid rgba(246,241,231,0.15);padding-top:24px;}
+  .stat{padding:0 32px 0 0;margin-right:32px;border-right:1px solid rgba(246,241,231,0.15);}
+  .stat:last-child{border-right:none;}
+  .stat .num{font-family:'IBM Plex Mono',monospace;font-size:28px;font-weight:600;color:var(--white);display:block;line-height:1;}
+  .stat .label{font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:#8DA0C4;margin-top:6px;display:block;}
+
+  main{max-width:1180px;margin:0 auto;padding:36px 32px 100px;}
+
+  .toolbar{
+    display:flex;gap:14px;flex-wrap:wrap;align-items:center;justify-content:space-between;
+    margin-bottom:26px;background:var(--white);border:1px solid var(--border);border-radius:12px;
+    padding:14px 16px;
+  }
+  .toolbar-left{display:flex;gap:10px;flex-wrap:wrap;align-items:center;flex:1;min-width:260px;}
+  .search-wrap{position:relative;flex:1;min-width:220px;max-width:360px;}
+  .search-wrap svg{position:absolute;left:11px;top:50%;transform:translateY(-50%);opacity:.45;}
+  #searchBox{
+    width:100%;font-family:'Inter',sans-serif;font-size:13.5px;padding:9px 12px 9px 34px;
+    border-radius:7px;border:1px solid var(--border);background:var(--parchment);color:var(--charcoal);
+  }
+  #searchBox:focus{outline:2px solid var(--teal);outline-offset:-1px;background:var(--white);}
+  select{font-family:'Inter',sans-serif;font-size:13.5px;padding:9px 14px;border-radius:7px;border:1px solid var(--border);background:var(--white);color:var(--charcoal);cursor:pointer;min-width:150px;}
+  .btn-ghost{font-family:'Inter',sans-serif;font-weight:500;font-size:13px;background:transparent;color:var(--ink);border:1px solid var(--border);padding:9px 14px;border-radius:7px;cursor:pointer;white-space:nowrap;}
+  .btn-ghost:hover{border-color:var(--ink);}
+  .result-count{font-family:'IBM Plex Mono',monospace;font-size:12px;color:#8A8370;white-space:nowrap;padding:0 4px;}
+
+  #grid{display:grid;grid-template-columns:repeat(auto-fill, minmax(300px, 1fr));gap:18px;}
+  .card{
+    background:var(--white);border:1px solid var(--border);border-left:4px solid var(--field-color, var(--teal));
+    border-radius:10px;padding:20px 22px 22px;display:flex;flex-direction:column;gap:10px;
+    opacity:0;transform:translateY(8px);animation:rise .4s ease forwards;
+    box-shadow:0 1px 2px rgba(22,35,59,0.03);
+  }
+  @keyframes rise{to{opacity:1;transform:translateY(0);}}
+  .card:hover{border-color:var(--border);border-left-color:var(--field-color, var(--teal));box-shadow:0 6px 18px rgba(22,35,59,0.08);transform:translateY(-1px);}
+  .tag-row{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;}
+  .accession{font-family:'IBM Plex Mono',monospace;font-size:11.5px;font-weight:600;color:var(--amber);background:#FBF3E4;border:1px solid #EFD9AC;padding:4px 8px;border-radius:5px;}
+  .unit-badge{font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;color:var(--teal-dark);background:#E7F2EE;border:1px solid #C9E3D9;padding:4px 8px;border-radius:5px;white-space:nowrap;}
+  .card h3{font-family:'Fraunces',serif;font-weight:500;font-size:18px;line-height:1.3;margin:0;color:var(--ink);}
+  .card .field-project{font-size:12px;color:#8A8370;margin:-4px 0 0;display:flex;align-items:center;gap:6px;}
+  .field-dot{width:7px;height:7px;border-radius:50%;background:var(--field-color, var(--teal));flex-shrink:0;}
+  .card p.desc{font-size:13.5px;line-height:1.55;color:#4A473E;margin:0;flex-grow:1;
+    display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden;}
+  .card .meta{display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--border);padding-top:10px;margin-top:4px;font-size:12px;color:#8A8370;gap:8px;}
+  .card .contributor{font-weight:600;color:var(--charcoal);}
+  .card a.link{font-size:12px;color:var(--teal-dark);text-decoration:none;font-weight:600;white-space:nowrap;}
+  .card a.link:hover{text-decoration:underline;}
+
+  .empty{grid-column:1/-1;text-align:center;padding:70px 20px;border:1.5px dashed var(--border);border-radius:14px;background:var(--white);}
+  .empty h3{font-family:'Fraunces',serif;font-weight:500;font-size:22px;margin:0 0 8px;color:var(--ink);}
+  .empty p{font-size:14px;color:#8A8370;margin:0 0 20px;}
+  .loading{grid-column:1/-1;text-align:center;padding:60px 0;color:#8A8370;font-size:14px;}
+
+  .load-more-row{display:flex;justify-content:center;margin-top:30px;}
+  .btn-loadmore{
+    font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:13px;letter-spacing:.03em;
+    background:var(--white);color:var(--ink);border:1px solid var(--border);padding:12px 26px;border-radius:8px;
+    cursor:pointer;text-transform:uppercase;
+  }
+  .btn-loadmore:hover{border-color:var(--teal);color:var(--teal-dark);}
+
+  /* floating, non-central log-a-contribution affordance */
+  .fab{
+    position:fixed; right:22px; bottom:22px; z-index:40;
+    display:flex; align-items:center; gap:9px;
+    background:var(--amber); color:var(--ink); text-decoration:none;
+    font-family:'Inter',sans-serif; font-weight:700; font-size:13.5px;
+    padding:13px 18px 13px 16px; border-radius:999px;
+    box-shadow:0 8px 24px rgba(201,138,44,0.4), 0 2px 6px rgba(22,35,59,0.15);
+    transition:transform .12s ease, box-shadow .12s ease;
+  }
+  .fab:hover{transform:translateY(-2px); box-shadow:0 12px 28px rgba(201,138,44,0.48), 0 3px 8px rgba(22,35,59,0.18);}
+  .fab:active{transform:translateY(0);}
+  .fab svg{flex-shrink:0;}
+
+  .footnote{
+    max-width:1180px;margin:0 auto;padding:0 32px 60px;font-size:12.5px;color:#A39D89;line-height:1.6;
+  }
+  .footnote a{color:var(--teal-dark);}
+
+  @media (max-width:640px){
+    .stats-row{gap:0;} .stat{margin-right:20px;padding-right:20px;}
+    .fab span.fab-label{display:none;}
+    .fab{padding:14px;border-radius:50%;}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow"><span class="dot"></span>AXON REVIEW · LIVING RESEARCH RECORD</div>
+    <h1 class="title">The Contribution <em>Archive</em></h1>
+    <p class="hero-sub">Every proposal, investigation, model, and campaign our participants produce is logged here, permanently, under its own accession number. This is one growing, organization-wide record — not a folder of drafts.</p>
+    <div class="hero-actions">
+      <a class="btn-outline" id="backToBookBtn" href="intro.html">← Back to the Book</a>
+    </div>
+    <div class="stats-row">
+      <div class="stat"><span class="num mono" id="statTotal">—</span><span class="label">Logged Contributions</span></div>
+      <div class="stat"><span class="num mono">8</span><span class="label">Active Fields</span></div>
+      <div class="stat"><span class="num mono">80</span><span class="label">Project Pathways</span></div>
+      <div class="stat"><span class="num mono" id="statLatest">—</span><span class="label">Most Recent Entry</span></div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="toolbar">
+    <div class="toolbar-left">
+      <div class="search-wrap">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#8A8370" stroke-width="2.2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+        <input id="searchBox" type="text" placeholder="Search title, contributor, chapter…">
+      </div>
+      <select id="fieldFilter" aria-label="Filter by field"></select>
+      <select id="unitFilter" aria-label="Filter by unit"></select>
+      <select id="sortOrder" aria-label="Sort order">
+        <option value="newest">Newest first</option>
+        <option value="oldest">Oldest first</option>
+        <option value="az">Title, A–Z</option>
+        <option value="field">By field</option>
+      </select>
+      <button class="btn-ghost" id="clearFilters">Clear</button>
+    </div>
+    <div class="result-count mono" id="resultCount"></div>
+  </div>
+  <div id="grid"><div class="loading">Opening the archive…</div></div>
+  <div class="load-more-row" id="loadMoreRow" style="display:none;">
+    <button class="btn-loadmore" id="loadMoreBtn">Show more entries</button>
+  </div>
+</main>
+
+<a class="fab" id="fabForm" href="#" target="_blank" rel="noopener" title="Log a Contribution">
+  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+  <span class="fab-label">Log a Contribution</span>
+</a>
+
+<p class="footnote">This archive reads live from Axon Review's own records. Submissions are added by filling out the contribution form, and typically appear here within a minute or two of the sheet updating. If your entry isn't showing yet, refresh this page. For the archive to load, the underlying Google Sheet must be shared as "Anyone with the link — Viewer."</p>
+
+<script>
+/* ======================================================
+   LIVE DATA SOURCES
+   ====================================================== */
+const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLScEGf2MOCYZDSQZKjR1BCBvY1vUXwpuxwliYCUnEBeuHqgAnw/viewform?usp=header";
+
+// "Back to the Book" cannot reliably guess a file path — it depends on whether
+// this page is open from the raw source folder, the built _build/html folder,
+// or a deployed website, and each of those has a different real path to intro.html.
+// So instead of guessing a path, this button first tries the browser's own
+// back-navigation: it simply returns to whatever page you actually arrived from,
+// which always exists because you were just there. The href="intro.html" above
+// is only a fallback for the rare case this page was opened in a fresh tab with
+// no history to go back to (e.g. someone pasted a direct link to the archive).
+// OPTIONAL: once this book is deployed online (GitHub Pages, Netlify, etc.), you
+// can still paste its live intro-page URL below to use as that fallback instead —
+// e.g. "https://yourname.github.io/axon-compass/intro.html" — but it is not required.
+const HOSTED_BOOK_URL = "";
+const backBtn = document.getElementById("backToBookBtn");
+if (HOSTED_BOOK_URL) { backBtn.href = HOSTED_BOOK_URL; }
+backBtn.addEventListener("click", function(e){
+  if (window.history.length > 1) {
+    e.preventDefault();
+    window.history.back();
+  }
+  // else: no history to return to, so let the normal href fallback navigate instead.
+});
+
+// Reads the Sheet's "Form Responses 1" tab live as CSV, via Google's own
+// visualization endpoint — no publishing step needed beyond link-sharing.
+// If your form's responses tab has a different name, change &sheet=... below.
+const SHEET_ID   = "1EKIdESVSFJwQe0GFHU9GdsBWpLvhJ_tfw16kM3K9bhg";
+const SHEET_TAB  = "Form Responses 1";
+const SHEET_CSV_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:csv&sheet=${encodeURIComponent(SHEET_TAB)}`;
+/* ====================================================== */
+
+document.getElementById("fabForm").href = GOOGLE_FORM_URL;
+
+const UNIT_LABELS = {
+  "Unit I": "Unit I — Learning Innovation Challenge",
+  "Unit II": "Unit II — Research Investigation",
+  "Unit III": "Unit III — Public Communication & Social Impact",
+  "Unit IV": "Unit IV — Memory/Decision Systems Simulation",
+  "Unit V": "Unit V — Policy Formation Simulation",
+  "Unit VI": "Unit VI — Integration & Summit"
+};
+
+// Field code + accent color, so every card visually files itself into its field at a glance.
+const FIELD_META = {
+  "Neuroscience × Education":                     { code:"EDU", color:"#3B6EA5" },
+  "Neuroscience × Economics":                      { code:"ECN", color:"#B5762B" },
+  "Neuroscience × Policy, Diplomacy & Advocacy":   { code:"PDA", color:"#7A4E9E" },
+  "Neuroscience × Physics":                        { code:"PHY", color:"#1F6F5C" },
+  "Neuroscience × Mathematics":                    { code:"MTH", color:"#C0483A" },
+  "Neuroscience × Biology & Chemistry":            { code:"BCH", color:"#3E8E5A" },
+  "Neuroscience × Computer Science":               { code:"CS",  color:"#2A5C8A" },
+  "Neuroscience × Entrepreneurship":               { code:"ENT", color:"#C98A2C" }
+};
+function fieldMeta(label){ return FIELD_META[label] || { code:"GEN", color:"#1F6F5C" }; }
+
+const PAGE_SIZE = 24;
+let allEntries = [];
+let currentFilters = { field: "", unit: "", q: "" };
+let currentSort = "newest";
+let visibleCount = PAGE_SIZE;
+
+function parseCSV(text){
+  const rows = [];
+  let row = [], field = "", inQuotes = false;
+  for(let i=0;i<text.length;i++){
+    const c = text[i], next = text[i+1];
+    if(inQuotes){
+      if(c === '"' && next === '"'){ field += '"'; i++; }
+      else if(c === '"'){ inQuotes = false; }
+      else { field += c; }
+    } else {
+      if(c === '"'){ inQuotes = true; }
+      else if(c === ','){ row.push(field); field = ""; }
+      else if(c === '\r'){ /* skip */ }
+      else if(c === '\n'){ row.push(field); rows.push(row); row = []; field = ""; }
+      else { field += c; }
+    }
+  }
+  if(field.length || row.length){ row.push(field); rows.push(row); }
+  return rows.filter(r => r.some(c => c.trim() !== ""));
+}
+
+function simpleHash(str){
+  let h = 0;
+  for(let i=0;i<str.length;i++){ h = ((h<<5)-h) + str.charCodeAt(i); h |= 0; }
+  const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+  let out = "";
+  let n = Math.abs(h);
+  for(let i=0;i<4;i++){ out += chars[n % chars.length]; n = Math.floor(n/chars.length) || (n+7); }
+  return out;
+}
+
+// Google's gviz endpoint wraps the CSV in a JSONP-style envelope when it errors
+// (e.g. sheet not shared, or tab name mismatch) rather than returning plain CSV.
+function looksLikeGvizError(text){
+  return text.trim().startsWith("<") || text.includes("google.visualization.Query.setResponse");
+}
+
+async function loadEntries(){
+  const grid = document.getElementById("grid");
+  try{
+    const res = await fetch(SHEET_CSV_URL, {cache:"no-store"});
+    if(!res.ok) throw new Error("Fetch failed: " + res.status);
+    const text = await res.text();
+    if(looksLikeGvizError(text)){
+      grid.innerHTML = `<div class="empty"><h3>Archive can't reach the Sheet yet</h3><p>Make sure the Google Sheet is shared as "Anyone with the link — Viewer," and that its responses tab is named "${escapeHtml(SHEET_TAB)}."</p></div>`;
+      return;
+    }
+    const rows = parseCSV(text);
+    if(rows.length < 2){ allEntries = []; renderFilters(); render(); return; }
+    const headers = rows[0].map(h => h.trim().toLowerCase());
+    const idx = (name) => headers.findIndex(h => h.includes(name));
+    const iTime = idx("timestamp");
+    const iField = idx("field");
+    const iProject = idx("project");
+    const iUnit = idx("unit");
+    const iTitle = idx("title");
+    const iDesc = idx("what did you do") >= 0 ? idx("what did you do") : idx("desc");
+    const iName = idx("name");
+    const iChapter = idx("chapter");
+    const iLink = idx("link");
+
+    const entries = rows.slice(1).map(r => {
+      const fieldLabel = (r[iField] || "").trim();
+      const projectRaw = (r[iProject] || "").trim();
+      const unitRaw = (r[iUnit] || "").trim();
+      const timestamp = r[iTime] || "";
+      const projNum = (projectRaw.match(/-(\d{2})/) || [,"00"])[1];
+      const unitKey = Object.keys(UNIT_LABELS).find(k => unitRaw.indexOf(k) === 0) || unitRaw.split(" —")[0] || unitRaw;
+      const fm = fieldMeta(fieldLabel);
+      return {
+        timestamp,
+        field: fieldLabel,
+        fieldColor: fm.color,
+        unit: unitKey,
+        unitLabel: UNIT_LABELS[unitKey] || unitRaw,
+        projectTitle: projectRaw.replace(/^[A-Z]+-\d{2}\s*—\s*/, ""),
+        title: (r[iTitle] || "").trim(),
+        desc: (r[iDesc] || "").trim(),
+        name: (r[iName] || "Anonymous").trim(),
+        chapter: (r[iChapter] || "Unaffiliated").trim(),
+        link: (r[iLink] || "").trim(),
+        accession: `AX-${fm.code}-${projNum}-${(unitKey.match(/\d+|[IVX]+$/)||["?"])[0].replace(/^(?!I|V|X)/,'')}-${simpleHash(timestamp + fieldLabel + projectRaw)}`
+      };
+    }).filter(e => e.title || e.desc);
+
+    allEntries = entries;
+
+    document.getElementById("statTotal").textContent = entries.length;
+    const dated = entries.map(e => e.timestamp ? new Date(e.timestamp) : null).filter(d => d && !isNaN(d));
+    document.getElementById("statLatest").textContent = dated.length
+      ? new Date(Math.max(...dated)).toLocaleDateString(undefined,{month:"short",day:"numeric"})
+      : "—";
+
+    renderFilters();
+    render();
+  }catch(e){
+    console.error(e);
+    const isFileProtocol = window.location.protocol === "file:";
+    let hint;
+    if(isFileProtocol){
+      hint = `You're opening this page directly from disk (<code class="mono">file://…</code>). Some browsers block reading Google's response from a local file for security reasons, even though the request itself works. Try serving this folder over a local web address instead — for example, run <code class="mono">python3 -m http.server</code> inside <code class="mono">jb/_build/html</code> and open <code class="mono">http://localhost:8000/archive.html</code> — or host it normally (GitHub Pages, Netlify, etc.).`;
+    } else {
+      hint = `This usually means the Google Sheet isn't shared publicly yet. Open the Sheet → <b>Share</b> → set access to <b>"Anyone with the link — Viewer."</b> Also double-check the responses tab is named exactly <code class="mono">${escapeHtml(SHEET_TAB)}</code>.`;
+    }
+    grid.innerHTML = `<div class="empty"><h3>Couldn't load the archive</h3><p style="max-width:480px;margin-left:auto;margin-right:auto;">${hint}</p><p style="font-size:11.5px;color:#B5AE99;margin-top:14px;">Technical detail: <span class="mono">${escapeHtml(e.message || e)}</span></p></div>`;
+  }
+}
+
+function renderFilters(){
+  const fieldSel = document.getElementById("fieldFilter");
+  const unitSel = document.getElementById("unitFilter");
+  const fields = [...new Set(allEntries.map(e=>e.field))].filter(Boolean).sort();
+  fieldSel.innerHTML = '<option value="">All fields</option>' + fields.map(f=>`<option value="${escapeHtml(f)}">${escapeHtml(f)}</option>`).join("");
+  unitSel.innerHTML = '<option value="">All units</option>' + Object.keys(UNIT_LABELS).map(k=>`<option value="${k}">${UNIT_LABELS[k]}</option>`).join("");
+  fieldSel.onchange = ()=>{ currentFilters.field = fieldSel.value; visibleCount = PAGE_SIZE; render(); };
+  unitSel.onchange = ()=>{ currentFilters.unit = unitSel.value; visibleCount = PAGE_SIZE; render(); };
+  document.getElementById("sortOrder").onchange = (e)=>{ currentSort = e.target.value; render(); };
+  document.getElementById("searchBox").oninput = (e)=>{ currentFilters.q = e.target.value.trim().toLowerCase(); visibleCount = PAGE_SIZE; render(); };
+  document.getElementById("clearFilters").onclick = ()=>{
+    currentFilters = {field:"",unit:"",q:""}; fieldSel.value=""; unitSel.value=""; document.getElementById("searchBox").value="";
+    currentSort = "newest"; document.getElementById("sortOrder").value = "newest";
+    visibleCount = PAGE_SIZE; render();
+  };
+  document.getElementById("loadMoreBtn").onclick = ()=>{ visibleCount += PAGE_SIZE; render(); };
+}
+
+function escapeHtml(str){ const d=document.createElement("div"); d.textContent = str==null?"":String(str); return d.innerHTML; }
+
+function sortEntries(list){
+  const withDates = list.map(e => ({...e, _d: e.timestamp ? new Date(e.timestamp) : null}));
+  switch(currentSort){
+    case "oldest": return withDates.sort((a,b)=> (a._d||0) - (b._d||0));
+    case "az":     return withDates.sort((a,b)=> a.title.localeCompare(b.title));
+    case "field":  return withDates.sort((a,b)=> a.field.localeCompare(b.field) || (b._d||0)-(a._d||0));
+    default:       return withDates.sort((a,b)=> (b._d||0) - (a._d||0)); // newest
+  }
+}
+
+function render(){
+  const grid = document.getElementById("grid");
+  const q = currentFilters.q;
+  let filtered = allEntries.filter(e=>{
+    if(currentFilters.field && e.field !== currentFilters.field) return false;
+    if(currentFilters.unit && e.unit !== currentFilters.unit) return false;
+    if(q){
+      const hay = `${e.title} ${e.desc} ${e.name} ${e.chapter} ${e.projectTitle}`.toLowerCase();
+      if(hay.indexOf(q) === -1) return false;
+    }
+    return true;
+  });
+  filtered = sortEntries(filtered);
+
+  document.getElementById("resultCount").textContent =
+    filtered.length ? `${filtered.length} entr${filtered.length===1?"y":"ies"}` : "";
+
+  if(!filtered.length){
+    document.getElementById("loadMoreRow").style.display = "none";
+    grid.innerHTML = allEntries.length
+      ? `<div class="empty"><h3>No entries match this view</h3><p>Try clearing a filter or your search.</p></div>`
+      : `<div class="empty"><h3>This cabinet is empty — be the first entry.</h3><p>No contributions logged yet. Every archive starts with accession #0001.</p><a class="btn-amber" href="${document.getElementById('fabForm').href}" target="_blank">+ Log a Contribution</a></div>`;
+    return;
+  }
+
+  const page = filtered.slice(0, visibleCount);
+  grid.innerHTML = page.map(e=>{
+    const d = e.timestamp ? new Date(e.timestamp) : null;
+    const dateStr = d && !isNaN(d) ? d.toLocaleDateString(undefined,{month:"short",day:"numeric",year:"numeric"}) : "";
+    const linkHtml = e.link ? `<a class="link" href="${escapeHtml(e.link)}" target="_blank" rel="noopener">View →</a>` : `<span></span>`;
+    return `<div class="card" style="--field-color:${e.fieldColor}">
+        <div class="tag-row">
+          <span class="accession mono">${escapeHtml(e.accession)}</span>
+          <span class="unit-badge">${escapeHtml(e.unit)}</span>
+        </div>
+        <h3>${escapeHtml(e.title)}</h3>
+        <p class="field-project"><span class="field-dot"></span>${escapeHtml(e.field)} · ${escapeHtml(e.projectTitle)}</p>
+        <p class="desc">${escapeHtml(e.desc)}</p>
+        <div class="meta">
+          <span><span class="contributor">${escapeHtml(e.name)}</span> · ${escapeHtml(e.chapter)} · ${dateStr}</span>
+          ${linkHtml}
+        </div>
+      </div>`;
+  }).join("");
+
+  document.getElementById("loadMoreRow").style.display = filtered.length > visibleCount ? "flex" : "none";
+}
+
+loadEntries();
+</script>
+</body>
+</html>
